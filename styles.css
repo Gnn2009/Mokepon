@@ -1,0 +1,203 @@
+body {
+    background: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    display: flex;
+    color: black;
+    justify-content: center;
+    font-size: 40px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 34px;
+}
+
+#seleccionar-mascota {
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+}
+
+.tarjetas {
+    display: flex;
+    margin: 20px 20px 20px 20px;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.tarjeta-grupo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.tarjeta-mascota {
+    display: flex;
+    padding: 10px;
+    width: 390px;
+    height: 250px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    transform: skew(-10deg);
+    margin: 10px 10px 0px 0px;
+}
+
+.tarjeta-grupo:nth-child(1) {
+    margin-left: 100px;
+}
+
+.tarjeta-grupo:nth-child(2) {
+    margin-left: 50px;
+}
+
+.tarjeta-grupo:nth-child(3) {
+    margin-left: 0px;
+}
+
+.contenido-tarjeta img {
+    display: flex;
+    height: 200px;
+}
+
+.contenido-tarjeta {
+    transform: skew(10deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+input[type="radio"] {
+    display: flex;
+    transform: skew(-10deg);
+    width: 30px;
+    height: 250px;
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%) skew(-10deg);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+input[type="radio"]:checked {
+    background-color: white;
+    position: absolute;
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0%;
+    height: 0%;
+    background-color: lawngreen;
+    transform: translate(-50%, -50%);
+    animation: fillFromCenter 0.5s ease-in-out forwards;
+}
+
+@keyframes fillFromCenter {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#boton-mascota {
+    display: flex;
+    margin: 30px 0px 0px 100px;
+    width: 170px;
+    height: 70px;
+    font-size: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: lawngreen;
+    align-items: center;
+    justify-content: center;
+    transform: skew(-10deg);
+}
+
+#boton-mascota p {
+    transform: skew(10deg);
+}
+
+#seleccionar-ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mensajes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+#reiniciar {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+#boton-reiniciar {
+    display: flex;
+    width: 170px;
+    height: 70px;
+    font-size: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: lawngreen;
+    align-items: center;
+    justify-content: center;
+    transform: skew(-10deg);
+}
+
+#boton-reiniciar p {
+    transform: skew(10deg);
+}
+
+#boton-fuego, #boton-agua, #boton-tierra {
+    display: flex;
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#boton-fuego:hover, #boton-agua:hover, #boton-tierra:hover {
+    background-color: lawngreen;
+}
+
+
+
