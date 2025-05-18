@@ -26,19 +26,10 @@ function iniciarJuego() {
 }
 
 function seleccionarMascotaJugador() {
-    sectionSeleccionarMascota.style.display = "none"
-    sectionSeleccionarAtaque.style.display = "flex"
-
     let inputGreninja = document.getElementById('Greninja')
     let inputCharizard = document.getElementById('Charizard')
     let inputVenusaur = document.getElementById('Venusaur')
     let spanMascotaJugador = document.getElementById('mascota-jugador')
-    let parrafo = document.createElement('p')
-    
-    if (!inputGreninja || !inputCharizard || !inputVenusaur || !spanMascotaJugador) {
-        console.error('No se encontraron los elementos necesarios')
-        return
-    }
     
     if (inputGreninja.checked) {
         spanMascotaJugador.innerHTML = 'Greninja'
@@ -49,31 +40,40 @@ function seleccionarMascotaJugador() {
     } else {
         sectionSeleccionarMascota.style.display = "flex"
         sectionSeleccionarAtaque.style.display = "none"
-        sectionSeleccionarMascota.appendChild(parrafo)
-        parrafo.innerHTML = "Debes seleccionar una mascota, RECARGANDO..."
-        botonAgua.disabled = true
-        botonFuego.disabled = true
-        botonTierra.disabled = true
-
-        setTimeout(function(){
-            location.reload()
-        }, 1250)
+        return
     }
 
     seleccionarMascotaEnemigo()
+
+    setTimeout(() => {
+        sectionSeleccionarMascota.style.display = "none"
+        sectionSeleccionarAtaque.style.display = "flex"
+    }, 1000)
 }
 
 function seleccionarMascotaEnemigo() {
     let mascotaAleatoria = aleatorio(1,3)
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
+    let inputGreninjaEnemigo = document.getElementById('Greninja-enemigo')
+    let inputCharizardEnemigo = document.getElementById('Charizard-enemigo')
+    let inputVenusaurEnemigo = document.getElementById('Venusaur-enemigo')
+
+    // Desactivar todos los inputs primero
+    inputGreninjaEnemigo.checked = false
+    inputCharizardEnemigo.checked = false
+    inputVenusaurEnemigo.checked = false
 
     if (mascotaAleatoria == 1) {
         spanMascotaEnemigo.innerHTML = 'Greninja'
+        inputGreninjaEnemigo.checked = true
     } else if (mascotaAleatoria == 2) {
         spanMascotaEnemigo.innerHTML = 'Charizard'
+        inputCharizardEnemigo.checked = true
     } else {
         spanMascotaEnemigo.innerHTML = 'Venusaur'
+        inputVenusaurEnemigo.checked = true
     }
+
 }
 
 function ataqueFuego() {
