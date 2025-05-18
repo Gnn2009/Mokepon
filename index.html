@@ -14,37 +14,72 @@
             <h1>MOKEPON! 🔥💧🌱</h1>
             <h2>Elige tu mascota:</h2>
 
-            <div class="tarjetas">
-                <div class="tarjeta-grupo">
-                    <label for="Greninja" class="tarjeta-mascota">
-                        <div class="contenido-tarjeta">
-                            <p>Greninja</p>
-                            <img src="Greninja.png" alt="Greninja">
-                        </div>
-                    </label>
-                    <input type="radio" name="mascota" id="Greninja" />
+            <div id="tarjetas">
+                <div class="tarjetas-jugador">
+                    <div class="tarjeta-grupo">
+                        <label for="Greninja" class="tarjeta-mascota">
+                            <div class="contenido-tarjeta">
+                                <p>Greninja</p>
+                                <img src="Greninja.png" alt="Greninja">
+                            </div>
+                        </label>
+                        <input type="radio" name="mascota" id="Greninja" class="input-jugador"/>
+                    </div>
+                    
+                    <div class="tarjeta-grupo">
+                        <label for="Charizard" class="tarjeta-mascota">
+                            <div class="contenido-tarjeta">
+                                <p>Charizard</p>
+                                <img src="Charizard.png" alt="Charizard">
+                            </div>
+                        </label>
+                        <input type="radio" name="mascota" id="Charizard" class="input-jugador"/>
+                    </div>
+                    
+                    <div class="tarjeta-grupo">
+                        <label for="Venusaur" class="tarjeta-mascota">
+                            <div class="contenido-tarjeta">
+                                <p>Venusaur</p>
+                                <img src="Venuzaur.png" alt="Venusaur">
+                            </div>
+                        </label>
+                        <input type="radio" name="mascota" id="Venusaur" class="input-jugador"/>
+                    </div>
                 </div>
-                
-                <div class="tarjeta-grupo">
-                    <label for="Charizard" class="tarjeta-mascota">
-                        <div class="contenido-tarjeta">
-                            <p>Charizard</p>
-                            <img src="Charizard.png" alt="Charizard">
-                        </div>
-                    </label>
-                    <input type="radio" name="mascota" id="Charizard" />
-                </div>
-                
-                <div class="tarjeta-grupo">
-                    <label for="Venusaur" class="tarjeta-mascota">
-                        <div class="contenido-tarjeta">
-                            <p>Venusaur</p>
-                            <img src="Venuzaur.png" alt="Venusaur">
-                        </div>
-                    </label>
-                    <input type="radio" name="mascota" id="Venusaur" />
+
+                <div class="tarjetas-enemigo">
+                    <div class="tarjeta-grupo-enemigo">
+                        <label for="Greninja-enemigo" class="tarjeta-mascota-enemigo">
+                            <div class="contenido-tarjeta-enemigo">
+                                <p>Greninja</p>
+                                <img src="Greninja.png" alt="Greninja">
+                            </div>
+                        </label>
+                        <input type="radio" name="mascota-enemigo" id="Greninja-enemigo" />
+                    </div>
+                    
+                    <div class="tarjeta-grupo-enemigo">
+                        <label for="Charizard-enemigo" class="tarjeta-mascota-enemigo">
+                            <div class="contenido-tarjeta-enemigo">
+                                <p>Charizard</p>
+                                <img src="Charizard.png" alt="Charizard">
+                            </div>
+                        </label>
+                        <input type="radio" name="mascota-enemigo" id="Charizard-enemigo" />
+                    </div>
+                    
+                    <div class="tarjeta-grupo-enemigo">
+                        <label for="Venusaur-enemigo" class="tarjeta-mascota-enemigo">
+                            <div class="contenido-tarjeta-enemigo">
+                                <p>Venusaur</p>
+                                <img src="Venuzaur.png" alt="Venusaur">
+                            </div>
+                        </label>
+                        <input type="radio" name="mascota-enemigo" id="Venusaur-enemigo" />
+                    </div>
                 </div>
             </div>
+
             <button id="boton-mascota">
                 <p>Seleccionar</p>
             </button>
