@@ -54,7 +54,7 @@
                         <label for="Greninja-enemigo" class="tarjeta-mascota-enemigo">
                             <div class="contenido-tarjeta-enemigo">
                                 <p>Greninja</p>
-                                <img src="Greninja.png" alt="Greninja">
+                                <img src="Greninja.png" alt="Greninja" id="GreninjaImg">
                             </div>
                         </label>
                         <input disabled type="radio" name="mascota-enemigo" id="Greninja-enemigo" />
@@ -64,7 +64,7 @@
                         <label for="Charizard-enemigo" class="tarjeta-mascota-enemigo">
                             <div class="contenido-tarjeta-enemigo">
                                 <p>Charizard</p>
-                                <img src="Charizard.png" alt="Charizard">
+                                <img src="Charizard.png" alt="Charizard" id="CharizardImg">
                             </div>
                         </label>
                         <input disabled type="radio" name="mascota-enemigo" id="Charizard-enemigo" />
@@ -74,7 +74,7 @@
                         <label for="Venusaur-enemigo" class="tarjeta-mascota-enemigo">
                             <div class="contenido-tarjeta-enemigo">
                                 <p>Venusaur</p>
-                                <img src="Venuzaur.png" alt="Venusaur">
+                                <img src="Venuzaur.png" alt="Venusaur" id="VenuzaurImg">
                             </div>
                         </label>
                         <input disabled type="radio" name="mascota-enemigo" id="Venusaur-enemigo" />
@@ -92,10 +92,36 @@
 
         <section id="seleccionar-ataque">
             <h2>Elige tu ataque:</h2>
+            <div id="mascotas-vidas-ataques">
+                <div class="tarjeta-combate">
+                    <p>Tu mascota</p>
+                    <span id="mascota-jugador"></span>
+                    <p>tiene <span id="vidas-jugador">3</span> vidas</p>
+                    <div class="ataque-jugador">
+                        <p>Tu ataque:</p>
+                        <span id="ataque-jugador"></span>
+                    </div>
+                </div>
+                
+                <div class="mensajes-reiniciar">
+                    <div id="mensajes">
+                        <p id="resultado-combate"></p>
+                    </div>
+                    <div id="reiniciar">
+                        <button id="boton-reiniciar">Reiniciar</button>
+                    </div>
+                </div>
 
-            <p>Tu mascota <span id="mascota-jugador">?</span> tiene <span id="vidas-jugador">3</span> vidas</p>
-            <p>La mascota <span id="mascota-enemigo">?</span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
-
+                <div class="tarjeta-combate">
+                    <p>La mascota</p>
+                    <span id="mascota-enemigo"></span>
+                    <p>del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
+                    <div class="ataque-enemigo">
+                        <p>Ataque del enemigo:</p>
+                        <span id="ataque-enemigo"></span>
+                    </div>
+                </div>
+            </div>
             <p>
                 <button id="boton-fuego">Fuego 🔥</button>
                 <button id="boton-agua">Agua 💧</button>
@@ -103,12 +129,9 @@
             </p>
         </section>
 
-        <section id="mensajes">
-        </section>
 
-        <section id="reiniciar">
-            <button id="boton-reiniciar">Reiniciar</button>
-        </section>
+
+        
 
     </body>
 </html>

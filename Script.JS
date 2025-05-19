@@ -32,11 +32,11 @@ function seleccionarMascotaJugador() {
     let spanMascotaJugador = document.getElementById('mascota-jugador')
     
     if (inputGreninja.checked) {
-        spanMascotaJugador.innerHTML = 'Greninja'
+        spanMascotaJugador.innerHTML = `<img src="Greninja.png" alt="Greninja">`
     } else if (inputCharizard.checked) {
-        spanMascotaJugador.innerHTML = 'Charizard'
+        spanMascotaJugador.innerHTML = `<img src="Charizard.png" alt="Charizard">`
     } else if (inputVenusaur.checked) {
-        spanMascotaJugador.innerHTML = 'Venusaur'
+        spanMascotaJugador.innerHTML = `<img src="Venuzaur.png" alt="Venusaur">`
     } else {
         sectionSeleccionarMascota.style.display = "flex"
         sectionSeleccionarAtaque.style.display = "none"
@@ -54,50 +54,62 @@ function seleccionarMascotaJugador() {
 function seleccionarMascotaEnemigo() {
     let mascotaAleatoria = aleatorio(1,3)
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
-    let inputGreninjaEnemigo = document.getElementById('Greninja-enemigo')
-    let inputCharizardEnemigo = document.getElementById('Charizard-enemigo')
-    let inputVenusaurEnemigo = document.getElementById('Venusaur-enemigo')
-
-    // Desactivar todos los inputs primero
-    inputGreninjaEnemigo.checked = false
-    inputCharizardEnemigo.checked = false
-    inputVenusaurEnemigo.checked = false
+    let GreninjaEnemigo = document.getElementById('Greninja-enemigo')
+    let CharizardEnemigo = document.getElementById('Charizard-enemigo')
+    let VenusaurEnemigo = document.getElementById('Venusaur-enemigo')
 
     if (mascotaAleatoria == 1) {
-        spanMascotaEnemigo.innerHTML = 'Greninja'
-        inputGreninjaEnemigo.checked = true
+        spanMascotaEnemigo.innerHTML = `<img src="Greninja.png" alt="Greninja">`
+        GreninjaEnemigo.checked = true
     } else if (mascotaAleatoria == 2) {
-        spanMascotaEnemigo.innerHTML = 'Charizard'
-        inputCharizardEnemigo.checked = true
-    } else {
-        spanMascotaEnemigo.innerHTML = 'Venusaur'
-        inputVenusaurEnemigo.checked = true
+        spanMascotaEnemigo.innerHTML = `<img src="Charizard.png" alt="Charizard">`
+        CharizardEnemigo.checked = true
+    } else {    
+        spanMascotaEnemigo.innerHTML = `<img src="Venuzaur.png" alt="Venusaur">`
+        VenusaurEnemigo.checked = true
     }
-
 }
 
 function ataqueFuego() {
     ataqueJugador = 'FUEGO'
+    let ataqueJugadorSpan = document.getElementById('ataque-jugador')
+    ataqueJugadorSpan.innerHTML = '🔥 FUEGO'
+    ataqueJugadorSpan.className = 'ataque-fuego'
     ataqueAleatorioEnemigo()
 }
+
 function ataqueAgua() {
     ataqueJugador = 'AGUA'
+    let ataqueJugadorSpan = document.getElementById('ataque-jugador')
+    ataqueJugadorSpan.innerHTML = '💧 AGUA'
+    ataqueJugadorSpan.className = 'ataque-agua'
     ataqueAleatorioEnemigo()
 }
+
 function ataqueTierra() {
     ataqueJugador = 'TIERRA'
+    let ataqueJugadorSpan = document.getElementById('ataque-jugador')
+    ataqueJugadorSpan.innerHTML = '🌱 TIERRA'
+    ataqueJugadorSpan.className = 'ataque-tierra'
     ataqueAleatorioEnemigo()
 }
 
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(1,3)
+    let ataqueEnemigoSpan = document.getElementById('ataque-enemigo')
     
     if (ataqueAleatorio == 1) {
         ataqueEnemigo = 'FUEGO'
+        ataqueEnemigoSpan.innerHTML = '🔥 FUEGO'
+        ataqueEnemigoSpan.className = 'ataque-fuego'
     } else if (ataqueAleatorio == 2) {
         ataqueEnemigo = 'AGUA'
+        ataqueEnemigoSpan.innerHTML = '💧 AGUA'
+        ataqueEnemigoSpan.className = 'ataque-agua'
     } else {
         ataqueEnemigo = 'TIERRA'
+        ataqueEnemigoSpan.innerHTML = '🌱 TIERRA'
+        ataqueEnemigoSpan.className = 'ataque-tierra'
     }
 
     combate()
@@ -107,14 +119,13 @@ function crearMensajes(resultado) {
     let sectionMensajes = document.getElementById('mensajes')
     
     let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', las mascota del enemigo atacó con ' + ataqueEnemigo + "--" + resultado
+    parrafo.innerHTML = resultado
     
     sectionMensajes.appendChild(parrafo)
 }
 
 function crearMensajeFinal(resultadoFinal) {
-    sectionReiniciar.style.display = "block"
-    sectionSeleccionarAtaque.style.display = "none"
+    sectionReiniciar.style.display = "flex"
 
     let sectionMensajes = document.getElementById('mensajes')
 
@@ -150,10 +161,10 @@ function combate(){
 
 function revisarVidas(){
     if (vidasJugador == 0){
-        crearMensajeFinal("HAS PERDIDO!")
+        crearMensajeFinal("Se acabo el juego --HAS PERDIDO!--")
         crearMensajeFinal("DEBES REINICIAR EL JUEGO")
     }else if (vidasEnemigo == 0){
-        crearMensajeFinal("HAS GANADO!")
+        crearMensajeFinal("Se acabo el juego --HAS GANADO!--")
         crearMensajeFinal("DEBES REINICIAR EL JUEGO")
     }
 }

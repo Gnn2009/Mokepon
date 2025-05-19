@@ -1,21 +1,23 @@
+:root {
+    --primary-color: black;
+    --secondary-color: white;
+    --accent-color: lawngreen;
+    --background-color: antiquewhite;
+}
+
 body {
-    background: antiquewhite;
+    background: var(--background-color);
     font-family: 'Times New Roman', Times, serif;
 }
 
-h1 {
+h1, h2 {
     display: flex;
-    color: black;
     justify-content: center;
-    font-size: 40px;
+    color: var(--primary-color);
 }
 
-h2 {
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-size: 34px;
-}
+h1 { font-size: 40px; }
+h2 { font-size: 34px; }
 
 #seleccionar-mascota {
     height: 100vh;
@@ -31,7 +33,7 @@ h2 {
 
 .tarjetas-jugador {
     display: flex;
-    margin: 20px 20px 20px 100px;
+    margin: 20px 20px 20px 250px;
     flex-direction: column;
     box-sizing: border-box;
     align-items: flex-start;
@@ -41,7 +43,7 @@ h2 {
 
 .tarjetas-enemigo {
     display: flex;
-    margin: 20px 100px 20px 20px;
+    margin: 20px 250px 20px 20px;
     flex-direction: column;
     box-sizing: border-box;
     align-items: flex-end;
@@ -49,124 +51,83 @@ h2 {
     width: 30%;
 }
 
-.tarjeta-grupo {
+.tarjeta-grupo, .tarjeta-grupo-enemigo {
     display: flex;
     align-items: center;
     position: relative;
     margin-bottom: 20px;
 }
 
-/* Estilos para tarjetas del jugador */
-.tarjeta-mascota {
+.tarjeta-mascota, .tarjeta-mascota-enemigo {
     display: flex;
     padding: 10px;
     width: 390px;
     height: 250px;
     box-sizing: border-box;
-    background-color: white;
-    color: black;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
+    margin: 10px 10px 0px 10px;
+}
+
+.tarjeta-mascota {
     transform: skew(-10deg);
     margin: 10px 10px 0px 0px;
 }
 
-.contenido-tarjeta {
-    transform: skew(10deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-}
-
-.contenido-tarjeta img {
-    height: 200px;
-}
-
-/* Inputs del jugador */
-input[type="radio"][name="mascota"] {
-    width: 30px;
-    height: 250px;
-    position: absolute;
-    right: -30px;
-    top: 51%;
-    transform: translateY(-50%) skew(-10deg);
-    appearance: none;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-input[type="radio"][name="mascota"]:checked {
-    background-color: white;
-}
-
-input[type="radio"][name="mascota"]:checked::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0%;
-    height: 0%;
-    background-color: lawngreen;
-    transform: translate(-50%, -50%);
-    animation: fillFromCenter 0.25s ease-in-out forwards;
-}
-
-/* Estilos para tarjetas del enemigo */
 .tarjeta-mascota-enemigo {
-    display: flex;
-    padding: 10px;
-    width: 390px;
-    height: 250px;
-    box-sizing: border-box;
-    background-color: white;
-    color: black;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid black;
-    border-radius: 10px;
     transform: skew(10deg);
-    margin: 10px 10px 0px 10px;
 }
 
-.contenido-tarjeta-enemigo {
-    transform: skew(-10deg);
+.contenido-tarjeta, .contenido-tarjeta-enemigo {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 40px;
 }
 
-.contenido-tarjeta-enemigo img {
+.contenido-tarjeta { transform: skew(10deg); }
+.contenido-tarjeta-enemigo { transform: skew(-10deg); }
+
+.contenido-tarjeta img, .contenido-tarjeta-enemigo img {
     height: 200px;
 }
 
-/* Inputs del enemigo */
+input[type="radio"][name="mascota"],
 input[type="radio"][name="mascota-enemigo"] {
     width: 30px;
     height: 250px;
     position: absolute;
-    left: -30px;
     top: 51%;
-    transform: translateY(-50%) skew(10deg);
+    transform: translateY(-50%);
     appearance: none;
-    background-color: white;
-    border: 2px solid black;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     cursor: pointer;
     overflow: hidden;
     z-index: 1;
 }
 
-input[type="radio"][name="mascota-enemigo"]:checked {
-    background-color: white;
+input[type="radio"][name="mascota"] {
+    right: -30px;
+    transform: translateY(-50%) skew(-10deg);
 }
 
+input[type="radio"][name="mascota-enemigo"] {
+    left: -30px;
+    transform: translateY(-50%) skew(10deg);
+}
+
+input[type="radio"][name="mascota"]:checked,
+input[type="radio"][name="mascota-enemigo"]:checked {
+    background-color: var(--secondary-color);
+}
+
+input[type="radio"][name="mascota"]:checked::after,
 input[type="radio"][name="mascota-enemigo"]:checked::after {
     content: '';
     position: absolute;
@@ -174,77 +135,50 @@ input[type="radio"][name="mascota-enemigo"]:checked::after {
     left: 50%;
     width: 0%;
     height: 0%;
-    background-color: lawngreen;
+    background-color: var(--accent-color);
     transform: translate(-50%, -50%);
     animation: fillFromCenter 0.25s ease-in-out forwards;
 }
 
-/* Márgenes específicos para grupos */
-.tarjeta-grupo:nth-child(1) {
-    margin-left: 100px;
-}
+.tarjeta-grupo:nth-child(1) { margin-left: 100px; }
+.tarjeta-grupo:nth-child(2) { margin-left: 50px; }
+.tarjeta-grupo:nth-child(3) { margin-left: 0px; }
 
-.tarjeta-grupo:nth-child(2) {
-    margin-left: 50px;
-}
-
-.tarjeta-grupo:nth-child(3) {
-    margin-left: 0px;
-}
-
-.tarjeta-grupo-enemigo:nth-child(1) {
-    margin-right: 100px;
-}
-
-.tarjeta-grupo-enemigo:nth-child(2) {
-    margin-right: 50px;
-}
-
-.tarjeta-grupo-enemigo:nth-child(3) {
-    margin-right: 0px;
-}
+.tarjeta-grupo-enemigo:nth-child(1) { margin-right: 100px; }
+.tarjeta-grupo-enemigo:nth-child(2) { margin-right: 50px; }
+.tarjeta-grupo-enemigo:nth-child(3) { margin-right: 0px; }
 
 @keyframes fillFromCenter {
-    0% {
-        width: 0%;
-        height: 0%;
-    }
-    100% {
-        width: 100%;
-        height: 100%;
-    }
+    0% { width: 0%; height: 0%; }
+    100% { width: 100%; height: 100%; }
 }
 
-#boton-mascota {
+#boton-mascota, #boton-reiniciar {
     display: flex;
-    margin: -30px 0px 0px 200px;
     width: 170px;
     height: 70px;
     font-size: 25px;
-    border: 2px solid black;
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
-    background-color: lawngreen;
+    background-color: var(--accent-color);
     align-items: center;
     justify-content: center;
     transform: skew(-10deg);
 }
 
-#boton-mascota p {
+#boton-mascota { margin: -30px 0px 0px 340px; }
+
+#boton-mascota p, #boton-reiniciar p {
     transform: skew(10deg);
 }
 
-#seleccionar-ataque {
+#seleccionar-ataque, #mensajes {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#mensajes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
+#mensajes { margin: 20px; }
 
 #reiniciar {
     display: flex;
@@ -252,31 +186,14 @@ input[type="radio"][name="mascota-enemigo"]:checked::after {
     margin: 20px;
 }
 
-#boton-reiniciar {
-    display: flex;
-    width: 170px;
-    height: 70px;
-    font-size: 25px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: lawngreen;
-    align-items: center;
-    justify-content: center;
-    transform: skew(-10deg);
-}
-
-#boton-reiniciar p {
-    transform: skew(10deg);
-}
-
 #boton-fuego, #boton-agua, #boton-tierra {
     display: flex;
     width: 120px;
     height: 50px;
     font-size: 20px;
-    border: 2px solid black;
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--secondary-color);
     align-items: center;
     justify-content: center;
     margin: 10px;
@@ -284,38 +201,98 @@ input[type="radio"][name="mascota-enemigo"]:checked::after {
 }
 
 #boton-fuego:hover, #boton-agua:hover, #boton-tierra:hover {
-    background-color: lawngreen;
+    background-color: var(--accent-color);
 }
 
-.tarjeta-grupo-enemigo {
+#mascotas-vidas-ataques {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px 0;
+    justify-content: center;
     position: relative;
-    margin-bottom: 20px;
 }
 
-/* Media query simple para pantallas pequeñas */
-@media (max-width: 768px) {
-    .tarjeta-mascota, .tarjeta-mascota-enemigo {
-        width: 300px;
-        height: 200px;
-    }
-    
-    .contenido-tarjeta img, .contenido-tarjeta-enemigo img {
-        height: 150px;
-    }
+.tarjeta-combate {
+    width: 390px;
+    height: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-@media (max-width: 480px) {
-    .tarjeta-mascota, .tarjeta-mascota-enemigo {
-        width: 250px;
-        height: 180px;
-    }
-    
-    .contenido-tarjeta img, .contenido-tarjeta-enemigo img {
-        height: 120px;
-    }
+.tarjeta-combate p {
+    font-size: 64px;
+    margin: 0;
+    text-align: center;
 }
 
+.tarjeta-combate span {
+    font-size: 64px;
+}
 
+#vidas-jugador, #vidas-enemigo {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+#mascota-jugador img, #mascota-enemigo img {
+    width: 320px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.ataque-jugador, .ataque-enemigo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    width: 200px;
+}
+
+.ataque-jugador {
+    left: -280px;
+}
+
+.ataque-enemigo {
+    right: -280px;
+}
+
+.ataque-jugador p, .ataque-enemigo p {
+    font-size: 32px;
+    margin: 0;
+}
+
+#ataque-jugador, #ataque-enemigo {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.ataque-fuego {
+    color: #ff4d4d;  /* Rojo para fuego */
+}
+
+.ataque-agua {
+    color: #4d4dff;  /* Azul para agua */
+}
+
+.ataque-tierra {
+    color: #4dff4d;  /* Verde para tierra */
+}
+
+.mensajes-reiniciar{justify-content: center;}
 
